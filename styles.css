@@ -1,0 +1,264 @@
+@import url(https://fonts.google.com/specimen/Spartan);
+
+.default {
+  --main-background: hsl(222, 26%, 31%);
+  --text-color: white;
+  --toggle-keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --key-background-toggle: hsl(6, 63%, 50%);
+  --key-shadow: hsl(6, 70%, 34%);
+  --equal-color: white;
+  --del-background-color: hsl(225, 21%, 49%);
+  --del-key-shadow: hsl(224, 28%, 35%);
+  --reset-background-color: hsl(225, 21%, 49%);
+  --reset-shadow: hsl(224, 28%, 35%);
+  --button-background-color: hsl(30, 25%, 89%);
+  --button-color: hsl(221, 14%, 31%);
+  --button-shadow: hsl(28, 16%, 65%);
+}
+
+.theme2 {
+  --main-background: hsl(0, 0%, 90%);
+  --toggle-keypad-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+  --key-background-toggle: hsl(25, 98%, 40%);
+  --key-shadow: hsl(25, 99%, 27%);
+  --del-background-color: hsl(185, 42%, 37%);
+  --del-key-shadow: hsl(185, 58%, 25%);
+  --reset-background-color: hsl(185, 42%, 37%);
+  --reset-shadow: hsl(185, 58%, 25%);
+  --button-background-color: hsl(45, 7%, 89%);
+  --button-color: hsl(60, 10%, 19%);
+  --button-shadow: hsl(35, 11%, 61%);
+  --text-color: hsl(60, 10%, 19%);
+  --equal-color: white;
+}
+
+.theme3 {
+  --main-background: hsl(268, 75%, 9%);
+  --toggle-keypad-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+  --key-background-toggle: hsl(176, 100%, 44%);
+  --key-shadow: hsl(177, 92%, 70%);
+  --del-background-color: hsl(281, 89%, 26%);
+  --del-key-shadow: hsl(285, 91%, 52%);
+  --reset-background-color: hsl(281, 89%, 26%);
+  --reset-shadow: hsl(285, 91%, 52%);
+  --button-background-color: hsl(268, 47%, 21%);
+  --button-color: hsl(52, 100%, 62%);
+  --button-shadow: hsl(290, 70%, 36%);
+  --text-color: hsl(52, 100%, 62%);
+  --equal-color: hsl(198, 20%, 13%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-background);
+  padding-top: 1.5rem;
+  user-select: none;
+}
+
+.container {
+  max-width: 375px;
+  margin: auto;
+  background-color: var(--main-background);
+  border-radius: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.wrapper {
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.9rem;
+  justify-content: end;
+  margin-left: 0;
+  color: var(--text-color);
+  margin-right: 0.8rem;
+  font-weight: 700;
+}
+
+li {
+  list-style-type: none;
+  margin-top: 0.8rem;
+}
+header {
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.themeWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 0.4rem;
+}
+
+#theme {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.radio-wrapper {
+  width: 5.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--toggle-keypad-background);
+  border-radius: 30px;
+  position: relative;
+}
+input[type="radio"] {
+  display: none;
+}
+
+.neutral + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  left: 38%;
+  transition: transform 1s;
+}
+.neutral:checked + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--key-background-toggle);
+}
+.yes + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+}
+.yes:checked + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--key-background-toggle);
+}
+.no + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+}
+.no:checked + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--key-background-toggle);
+}
+
+.calculatorDisplay {
+  background-color: var(--screen-background);
+  margin-top: 18px;
+  padding: 35px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.displayNum {
+  position: absolute;
+  color: var(--text-color);
+  font-size: 32px;
+  font-weight: 700;
+  bottom: 15px;
+  right: 15px;
+}
+#equal-to {
+  background-color: var(--key-background-toggle);
+  color: var(--equal-color);
+  grid-column: 3/5;
+  box-shadow: 1px 4px 4px -1px var(--key-shadow);
+}
+#del {
+  background-color: var(--del-background-color);
+  color: white;
+  box-shadow: 1px 4px 4px -1px var(--reset-shadow);
+}
+#reset {
+  background-color: var(--del-background-color);
+  color: white;
+  grid-column: 1/3;
+  box-shadow: 1px 4px 4px -1px var(--reset-shadow);
+}
+.calculatorKeys {
+  height: 60vh;
+  background-color: var(--toggle-keypad-background);
+  border-radius: 5px;
+  padding-top: 0.2rem;
+  padding-bottom: 2rem;
+}
+.calculatorGrid {
+  height: 55vh;
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.8rem;
+}
+
+button {
+  border: none;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  font-weight: 700;
+  font-size: 23px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 4px 4px -1px var(--button-shadow);
+}
+
+button:active {
+  color: white;
+  background-color: var(--del-background-color);
+  box-shadow: 1px 4px 4px -1px var(--reset-shadow);
+}
+#del:active {
+  color: var(--button-color);
+  background-color: var(--button-background-color);
+  box-shadow: 1px 4px 4px -1px var(--button-shadow);
+}
+#reset:active {
+  color: var(--button-color);
+  background-color: var(--button-background-color);
+  box-shadow: 1px 4px 4px -1px var(--button-shadow);
+}
+#equal-to:active {
+  color: var(--button-color);
+  background-color: var(--button-background-color);
+  box-shadow: 1px 4px 4px -1px var(--button-shadow);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
