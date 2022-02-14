@@ -124,8 +124,9 @@ function noColor() {
   if (this.checked) {
     theBody.className = "theme3"
   }
+
+  // Store Themes in Local Storage
   storeThemeToLocalStorage((theBody.className = "theme3"))
-  // console.log(theBody.className)
 }
 function yesColor() {
   let theBody = document.body
@@ -133,10 +134,12 @@ function yesColor() {
     theBody.className = "default"
     theBody.style.transition = "0.8s ease"
   }
+
+  // Store Themes in Local Storage
   storeThemeToLocalStorage((theBody.className = "default"))
-  // console.log(theBody.className)
 }
 
+// Store Themes in Local Storage
 function storeThemeToLocalStorage(theme) {
   let themes
   if (localStorage.getItem("themes") === null) {
@@ -144,21 +147,18 @@ function storeThemeToLocalStorage(theme) {
   } else {
     themes = JSON.parse(localStorage.getItem("themes"))
   }
-  theme[0] = theme
-
-  localStorage.setItem("themes", JSON.stringify(theme))
+  themes[0] = theme
+  localStorage.setItem("themes", JSON.stringify(themes))
 }
 
-function getTheme(e) {
-  let theBody = document.body
+// Get theme from Local Storage
+function getTheme() {
+  const theBody = document.body
   let themes
   if (localStorage.getItem("themes") === null) {
-    themes = []
+    themes = ["default"]
   } else {
     themes = JSON.parse(localStorage.getItem("themes"))
   }
-
-  // console.log(themes)
+  theBody.classList = themes[0]
 }
-
-// localStorage.clear()
