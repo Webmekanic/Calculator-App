@@ -20,6 +20,7 @@ numberArr.forEach(function (numberBtns) {
   numberBtns.addEventListener("click", updateDisplay, false)
 })
 
+// Calculator Display
 function updateDisplay(e) {
   const btnText = e.target.innerText
   if (displayVal === "0") {
@@ -32,6 +33,7 @@ function updateDisplay(e) {
   e.preventDefault()
 }
 
+// Handle Operation
 let operatorArr = Array.from(operatorKey)
 operatorArr.forEach(function (operatorKey) {
   operatorKey.addEventListener("click", performOperation)
@@ -81,8 +83,8 @@ function performOperation(e) {
   }
   e.preventDefault()
 }
-document.addEventListener("DOMContentLoaded", getTheme)
 
+document.addEventListener("DOMContentLoaded", getTheme)
 reset.addEventListener("click", resetDisplay)
 del.addEventListener("click", delDisplay)
 decimal.addEventListener("click", decimalKey)
