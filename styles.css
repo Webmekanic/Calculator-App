@@ -85,7 +85,7 @@ ul {
   display: flex;
   flex-direction: row;
   gap: 0.9rem;
-  justify-content: end;
+  justify-content: flex-end;
   margin-left: 0;
   color: var(--text-color);
   margin-right: 0.8rem;
@@ -145,31 +145,31 @@ input[type="radio"] {
 }
 .yes + label {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   position: absolute;
   left: 0;
 }
 .yes:checked + label {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background: var(--key-background-toggle);
 }
 .no + label {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   position: absolute;
   right: 0;
 }
 .no:checked + label {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background: var(--key-background-toggle);
 }
@@ -177,7 +177,7 @@ input[type="radio"] {
 .calculatorDisplay {
   background-color: var(--screen-background);
   margin-top: 18px;
-  padding: 35px;
+  padding: 2.1875rem;
   margin-bottom: 10px;
   border-radius: 5px;
   position: relative;
@@ -187,7 +187,7 @@ input[type="radio"] {
 .displayNum {
   position: absolute;
   color: var(--text-color);
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
   bottom: 15px;
   right: 15px;
@@ -229,7 +229,7 @@ button {
   background-color: var(--button-background-color);
   color: var(--button-color);
   font-weight: 700;
-  font-size: 23px;
+  font-size: 1.4375rem;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 1px 4px 4px -1px var(--button-shadow);
@@ -256,6 +256,7 @@ button:active {
   box-shadow: 1px 4px 4px -1px var(--button-shadow);
 }
 
+/* MEDIA QUERY */
 @media (max-width: 640px) {
   .container {
     padding-left: 1rem;

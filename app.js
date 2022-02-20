@@ -1,3 +1,4 @@
+// Declaring Variables
 const allKeys = document.querySelector(".calculatorKeys")
 const display = document.querySelector(".calculatorDisplay")
 const displayNum = document.querySelector(".displayNum")
@@ -15,7 +16,9 @@ let displayVal = "0"
 let pendingVal
 let evalStringArray = []
 
+// Convert HTML Collection to Array
 let numberArr = Array.from(numberBtns)
+
 numberArr.forEach(function (numberBtns) {
   numberBtns.addEventListener("click", updateDisplay, false)
 })
