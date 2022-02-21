@@ -30,8 +30,12 @@ function updateDisplay(e) {
     displayVal = btnText
     displayNum.innerHTML = parseFloat(displayVal).toLocaleString("en-US")
   } else {
-    displayVal += btnText
-    displayNum.innerHTML = parseFloat(displayVal).toLocaleString("en-US")
+    if (displayVal.length === 17) {
+      displayVal = 0
+    } else {
+      displayVal += btnText
+      displayNum.innerHTML = parseFloat(displayVal).toLocaleString("en-US")
+    }
   }
   e.preventDefault()
 }
