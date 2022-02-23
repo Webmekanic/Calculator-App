@@ -88,6 +88,7 @@ function performOperation(e) {
 }
 
 document.addEventListener("DOMContentLoaded", getTheme)
+document.addEventListener("DOMContentLoaded", getChecked)
 reset.addEventListener("click", resetDisplay)
 del.addEventListener("click", delDisplay)
 decimal.addEventListener("click", decimalKey)
@@ -119,41 +120,62 @@ function decimalKey() {
 // Calculator Themes
 function neutralColor() {
   let theBody = document.body
+  let theme2Checked = "t2checkedno"
   if (this.checked) {
     theBody.className = "theme2"
+    theme2Checked = "t2checkedyes"
   }
-  storeThemeToLocalStorage((theBody.className = "theme2"))
+  storeThemeToLocalStorage("theme2", theme2Checked)
 }
 function noColor() {
   let theBody = document.body
+  let theme3Checked = "t3checkedno"
   if (this.checked) {
     theBody.className = "theme3"
+    theme3Checked = "t3checkedyes"
   }
-
   // Store Themes in Local Storage
-  storeThemeToLocalStorage((theBody.className = "theme3"))
+  storeThemeToLocalStorage("theme3", theme3Checked)
 }
 function yesColor() {
   let theBody = document.body
+  let theme1Checked = "t1checkedno"
   if (this.checked) {
     theBody.className = "default"
     theBody.style.transition = "0.8s ease"
+    theme1Checked = "t1checkedyes"
   }
 
   // Store Themes in Local Storage
-  storeThemeToLocalStorage((theBody.className = "default"))
+  storeThemeToLocalStorage("default", theme1Checked)
 }
 
 // Store Themes in Local Storage
-function storeThemeToLocalStorage(theme) {
+function storeThemeToLocalStorage(theme, checkedTheme) {
+  setTheme(theme)
+  setChecked(checkedTheme)
+}
+
+function setTheme(theme) {
   let themes
   if (localStorage.getItem("themes") === null) {
-    themes = []
+    themes = "default"
   } else {
-    themes = JSON.parse(localStorage.getItem("themes"))
+    themes = theme
   }
-  themes[0] = theme
-  localStorage.setItem("themes", JSON.stringify(themes))
+
+  localStorage.setItem("themes", themes)
+}
+
+function setChecked(checkedTheme) {
+  let checked
+  if (localStorage.getItem("checked") === null) {
+    checked = "t1checkedyes"
+  } else {
+    checked = checkedTheme
+  }
+
+  localStorage.setItem("checked", checked)
 }
 
 // Get theme from Local Storage
@@ -161,9 +183,27 @@ function getTheme() {
   const theBody = document.body
   let themes
   if (localStorage.getItem("themes") === null) {
-    themes = ["default"]
+    theBody.className = "default"
+    localStorage.setItem("themes", "default")
   } else {
-    themes = JSON.parse(localStorage.getItem("themes"))
+    themes = localStorage.getItem("themes")
+    theBody.classList.add(themes)
   }
-  theBody.classList = themes[0]
+}
+
+function getChecked() {
+  const radios = document.getElementsByName("event")
+  const checked = localStorage.getItem("checked")
+  const radioYes = document.getElementById("radio-yes")
+
+  if (checked === null) {
+    radioYes.checked = true
+    localStorage.setItem("checked", "t1checkedyes")
+  } else {
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].value === checked) {
+        radios[i].checked = true
+      }
+    }
+  }
 }
