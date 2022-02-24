@@ -175,6 +175,7 @@ function setChecked(checkedTheme) {
   let checked
   if (localStorage.getItem("checked") === null) {
     checked = "t1checkedyes"
+    console.log(checked)
   } else {
     checked = checkedTheme
   }

@@ -256,7 +256,6 @@ button:active {
   box-shadow: 1px 4px 4px -1px var(--button-shadow);
 }
 
-/* MEDIA QUERY */
 @media (max-width: 640px) {
   .container {
     padding-left: 1rem;
